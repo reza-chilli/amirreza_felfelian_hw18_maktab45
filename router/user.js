@@ -13,11 +13,18 @@ router.get('/', function(req, res) {
 })
 
 router.post('/editUser', urlencodedParser, function(req, res) {
-  console.log(req.body.username);
   User.findOneAndUpdate({username:req.session.user.username}, {username:req.body.username}, {new : true}, function(err, result) {
     if (err) return console.log(err);
     req.session.user = result;
     res.redirect('/dashboard');
+  })
+})
+
+router.get('/deleteUser', function(req, res) {
+  User.deleteOne({username:req.session.user.username}, function(err) {
+    if (err) return res.status(500).send("Internal server error :(");
+    req.session.destroy();
+    res.redirect('/auth/signinPage');
   })
 })
 

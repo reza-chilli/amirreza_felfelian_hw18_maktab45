@@ -10,3 +10,13 @@ function editUser () {
     }
   });
 }
+function deleteUser () {
+  $.ajax(
+  {
+    method : "GET",
+    url : "/dashboard/deleteUser",
+    success : function() {
+      window.location.href = '/auth/signinPage'
+    }
+  });
+}
