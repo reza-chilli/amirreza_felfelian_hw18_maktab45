@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/register.css">
+  </head>
+  <body>
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-4 col-md-7 col-sm-9 shadow rounded p-5 register_form">
+            <form action="/auth/signin" method="POST">
+              <h3>sign in page</h3>
+              <hr>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">User name</label>
+                <input type="text" class="form-control" name="username" placeholder="Enter User name">
+                <p class="fs-6 text-danger hide">please fill out this field</p>
+              </div>
+              <% if (usererr) { %>
+                <div class="alert alert-danger" role="alert"><%=usererr%></div>
+              <% } %>
+              <% if (err) { %>
+                <div class="alert alert-danger" role="alert"><%=err%></div>
+              <% } %>
+              <div class="mb-4">
+                <label for="exampleFormControlInput1" class="form-label">password</label>
+                <input type="password" class="form-control" name="password" placeholder="Enter password">
+              </div>
+              <% if (err) { %>
+                <div class="alert alert-danger" role="alert"><%=err%></div>
+              <% } %>
+              <div class="mb-1">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </div>
+
+              <a href="/auth/registerPage" class="text-decoration-none">Dont have an account ? sign up for free !</a>
+
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+  </body>
+</html>

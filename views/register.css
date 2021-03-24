@@ -1,0 +1,11 @@
+body {
+  background-image: url('/background.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+.register_form {
+  background-color: white;
+}
+.hide {
+  display:none;
+}
